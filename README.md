@@ -1,0 +1,11 @@
+This repository contains a public version of my Minerva Capstone: "Understanding Large Language Models: An Engineer’s Handbook". The five core chapters in this book are as follows:
+
+1. Neural Language Models: this takes a broad view of language modeling as a whole - computational systems that can regress the probability of the next word, provided prior words in a sequence. It then examines how neural networks can use continuous representations to create functions that work not only on sequences provided during training, but also sequences "similar" to those but not directly provided during training.
+
+2. The Quirks of Tokenization: this examines how tokenization, which is the process through which natural language is broken down into a sequence of discrete symbols (to perform language modeling over) can have surprisingly unintended behaviors. This provides early work supporting that separating the syntax of natural language (such as capitalization, spacing, punctuation, etc.) from the *semantics* of language can lead to more robust, generalizable representations.
+
+3. LoRA and Weight Decay: This chapter explores the consequences of applying a popular regularization method to finetuning, when the weights are reparametrized. This reveals that applying weight decay on LoRa actually *changes* the underlying optimization objective (compared to full-finetuning), and provides guidance on when this might and might not be desirable.
+
+4. Tensor Parallelism with `jax.pjit`: This chapter explores model parallelism, which is how a neural network too large to fit on a single GPU can be distributed across dozens to hundreds of such chips. It examine how, for standard multi-layer perceptrons (MLPs), a mixture of two cases (sharding on inner and outer axes, respectively) can lead to a unified understanding of a large body of literature in this area.
+
+5. Chinchilla’s Implications: Chinchilla scaling laws are now commonly used in industry to determine the size and amount of data needed to train a model given a fixed budget of compute. This blog the implications of Chinchilla's findings: that models prior to that were severely undertrained, as well as how the scaling laws allows us to make quantifiable tradeoffs between train-time and inference time compute costs.
